@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ETL: Part 1 - Jean-Luc Blog</title>
+  <meta name="author" content="Jean-Luc">
+
+  
+  <meta name="description" content="A friend asked me some help about an ETL tool he&#8217;s building.
+I started to share some thoughts, but maybe thinking loud in this blog is a better &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jlcanela.github.com/jlcanela/topublish/2012-12-14-etl-part1.html">
+  <link href="/jlcanela/favicon.png" rel="icon">
+  <link href="/jlcanela/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/jlcanela/javascripts/modernizr-2.0.js"></script>
+  <script src="/jlcanela/javascripts/ender.js"></script>
+  <script src="/jlcanela/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/jlcanela/atom.xml" rel="alternate" title="Jean-Luc Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/jlcanela/">Jean-Luc Blog</a></h1>
+  
+    <h2>An IT blog.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/jlcanela/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jlcanela.github.com/jlcanela" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/jlcanela/">Blog</a></li>
+  <li><a href="/jlcanela/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">ETL: Part 1</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-14T20:32:00+01:00" pubdate data-updated="true">Dec 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>A friend asked me some help about an ETL tool he&#8217;s building.
+I started to share some thoughts, but maybe thinking loud in this blog is a better option.</p>
+
+<h1>Defining the problem</h1>
+
+<p>The ETL must first read data from an Sql database and then index data using an ElasticSearch engine.</p>
+
+<p>I would start by defining the type of the data</p>
+
+<ul>
+<li>PKey is the primary key of my records</li>
+<li>Data is the Sql data</li>
+</ul>
+
+
+<p>I would then define the type of the functions.</p>
+
+<figure class='code'><figcaption><span>the interface</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="k">def</span> <span class="n">selectDataToProcess</span><span class="o">()</span><span class="k">:</span> <span class="kt">Iterable</span><span class="o">[</span><span class="kt">PKey</span><span class="o">]</span>
+</span><span class='line'><span class="k">def</span> <span class="n">readDataFromSql</span><span class="o">(</span><span class="n">id</span><span class="k">:</span> <span class="kt">PKey</span><span class="o">)(</span><span class="n">cn</span><span class="k">:</span> <span class="kt">Connection</span><span class="o">)</span><span class="k">:</span> <span class="kt">Data</span>
+</span><span class='line'><span class="k">def</span> <span class="n">indexData</span><span class="o">(</span><span class="n">data</span><span class="k">:</span> <span class="kt">Data</span><span class="o">)(</span><span class="n">es</span><span class="k">:</span> <span class="kt">Client</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>using explicit parameters :</p>
+
+<ul>
+<li>having all parameters in the signature allows easier testing of the function.</li>
+<li>(another style is to use implicits parameters for the services)</li>
+</ul>
+
+
+<p>indexData returns</p>
+
+<ul>
+<li>Unit, when I don&#8217;t care about the result (side effect)</li>
+<li>another type otherwise (Boolean?)</li>
+</ul>
+
+
+<p>Following the types to combine the functions, I&#8217;d get:</p>
+
+<p>for {
+ key &lt;- selectDataToProcess
+ data = readDataFromSql(key)(cn)
+} indexData(data)(es)</p>
+
+<p>According to the interface, database access nor elastic search are returning errors. Let&#8217;s assume at the moment that the ETL can be restarted in case of (extremely rare) error.</p>
+
+<p>trait Utils {
+ def using [ A &lt;: {def close()}, B ] (param: A, f: A => B): B = {
+   try {</p>
+
+<pre><code> f(param)
+</code></pre>
+
+<p>   } finally</p>
+
+<pre><code> param.close()
+</code></pre>
+
+<p> }
+}</p>
+
+<p>object ETL extends Utils {</p>
+
+<p> def createConnection: Connection = ???
+ val es: Client = ???</p>
+
+<p> def selectDataToProcess(): Iterable[PKey] = Range(1, 30000)</p>
+
+<p> def readDataFromSql(id: PKey)(cn: Connection): Data = {
+   // code to be implemented here &#8230;
+   ???
+ }</p>
+
+<p> def indexData(data: Data)(es: Client) {
+   // code to be implemented here &#8230;
+   ???
+ }</p>
+
+<p> def main(args: Array[String]) = using(createConnection) { cn =>
+   for {</p>
+
+<pre><code> key &lt;- selectDataToProcess 
+ data = readDataFromSql(key)(cn)
+</code></pre>
+
+<p>   } indexData(data)(es)
+ }
+}</p>
+
+<p>2 - Optimization - Mesuring</p>
+
+<p>3 - Parallel Processing</p>
+
+<p>option 1 = Futures
+option 2 = Actors</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jean-Luc</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-12-14T20:32:00+01:00" pubdate data-updated="true">Dec 14<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    Liquid error: undefined method `sort!' for nil:NilClass
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jlcanela.github.com/jlcanela/topublish/2012-12-14-etl-part1.html" data-via="" data-counturl="http://jlcanela.github.com/jlcanela/topublish/2012-12-14-etl-part1.html" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/jlcanela/blog/2013/04/13/nodejs-form/">nodeJS form</a>
+      </li>
+    
+      <li class="post">
+        <a href="/jlcanela/blog/2013/02/26/%3C%3C-quel-avenir-pour-scala-%3E%3E-nest-pas-la-question/">« Quel avenir pour Scala ? » n'est pas la question.</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jean-Luc -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>« Quel avenir pour Scala ? » n'est pas la question. - Jean-Luc Blog</title>
+  <meta name="author" content="Jean-Luc">
+
+  
+  <meta name="description" content="J&#8217;ai été tenté d&#8217;écrire un article sur les incroyables capacités et potentiel du langage scala et de son écosystème.
+Quel que soit l&# &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jlcanela.github.com/jlcanela/blog/2013/02/26/%3C%3C-quel-avenir-pour-scala-%3E%3E-nest-pas-la-question/">
+  <link href="/jlcanela/favicon.png" rel="icon">
+  <link href="/jlcanela/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/jlcanela/javascripts/modernizr-2.0.js"></script>
+  <script src="/jlcanela/javascripts/ender.js"></script>
+  <script src="/jlcanela/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/jlcanela/atom.xml" rel="alternate" title="Jean-Luc Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/jlcanela/">Jean-Luc Blog</a></h1>
+  
+    <h2>An IT blog.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/jlcanela/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:jlcanela.github.com/jlcanela" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/jlcanela/">Blog</a></li>
+  <li><a href="/jlcanela/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">« Quel Avenir Pour Scala ? » N'est Pas La Question.</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-26T09:33:00+01:00" pubdate data-updated="true">Feb 26<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>J&#8217;ai été tenté d&#8217;écrire un article sur les incroyables capacités et potentiel du langage scala et de son écosystème.
+Quel que soit l&#8217;article vantant les mérites de telle ou telle technologie, que ce soit de la lessive, une voiture, le C++ et maintenant scala, on retrouve à peu prés les mêmes éléments marketing :« Performant » « Puissant » « Efficace » « Bla bla bla ».</p>
+
+<h1>La technologie</h1>
+
+<p>Lorsque l&#8217;on compare les différents langages, les différentes technologies, l&#8217;efficacité / performance varie souvent d&#8217;un facteur 3. En effet, l&#8217;accompagnement au changement, comme par exemple la formation, la migration logicielle, les changements dans les process de développement, etc, sont couteux et font que ce type de solution est difficilement maitrisable.</p>
+
+<p>Ce n&#8217;est qu&#8217;en cas de saut technologique que ce facteur peut être largement supérieur - je ne parle pas des dépliants publicitaires bien sûr -.</p>
+
+<p>Sommes nous bloqués là ? </p>
+
+<p>Quel est l&#8217;objectif réel lorsqu&#8217;on choisit une nouvelle technologie ? La raison est souvent : « déveloper plus vite ».
+Et pourquoi déveloper plus vite ? <em>Pour livrer plus vite</em>.</p>
+
+<h1>L&#8217;équipe</h1>
+
+<p>Livrer plus vite. Une solution est d&#8217;utiliser une équipe plus compétente ou mieux formée:</p>
+
+<ul>
+<li>la recette idéale entre le meilleur ratio développeurs-seniors (+cher) et développeurs-juniors (moins-chers) est toujours en préparation;</li>
+<li>le consensus est plutôt de bien maitriser la croissance de l&#8217;équipe et le « team building »;</li>
+<li>la citation « neuf femmes ne font pas un bébé en un mois » est toujours d&#8217;actualité.</li>
+</ul>
+
+
+<p>En fonction de l&#8217;expérience, les développeurs vont choisir des solutions plus ou moins adaptées. La variabilité constatée est d&#8217;au moins entre 1 et 10, voire plus &#8230;</p>
+
+<p>Livrer plus vite c&#8217;est bien, mais livrer quoi, telle est la question &#8230; ?</p>
+
+<h1>Livrer, c&#8217;est quoi ?</h1>
+
+<p>Il faut faire la différence entre:</p>
+
+<ul>
+<li>ce qui est livré : « la fonctionalité »;</li>
+<li>celui qui l&#8217;utilise : l&#8217;utilisateur;</li>
+<li>celui qui paye : l&#8217;acheteur.</li>
+</ul>
+
+
+<p>L&#8217;acheteur paye pour livrer la fonctionnalité à l&#8217;utilisateur.</p>
+
+<p>Voici ce qui peut arriver:</p>
+
+<ul>
+<li>peu de livraisons ou peu d&#8217;utilisateur = faible nombre de transactions</li>
+<li>valeur ajoutée fournie par la fonctionalité trop faible = transactions de faible montant</li>
+<li>pas d&#8217;acheteur = pas de paiement</li>
+</ul>
+
+
+<p>La valeur ajoutée est déterminée en fonction du service rendu, et non pas en fonction du coût de production.
+Celle-ci pourrait concerner par exemple l&#8217;augmentation des revenus, la projection de la marque ou la rétention des clients.</p>
+
+<h1>L&#8217;organisation</h1>
+
+<p>Imaginons une organisation dont le contexte est le suivant:</p>
+
+<ul>
+<li>1.000.000 de clients, en constant renouvellement;</li>
+<li>le coût du service est de 30€ / mois</li>
+</ul>
+
+
+<p>Considérons une fonctionalité de rétention des clients:</p>
+
+<ul>
+<li>rétention de 5.000 clients / mois;</li>
+<li>bénéfice attendu = 150 k€ / mois</li>
+<li>coût de développement négligeable = 10j de développeur</li>
+<li>délai de livraison = 1 mois</li>
+</ul>
+
+
+<p>L&#8217;organisation dispose de plusieurs paramètres pour optimiser son développement. Les voici ordonnée par impact financier:</p>
+
+<ul>
+<li>sélection de la bonne fonctionnalité</li>
+<li>réduction du délai de livraison - hypothèse de « déploiement continu » -</li>
+<li>réduction du coût de développement</li>
+</ul>
+
+
+<p>On saisit rapidement l&#8217;impact des projets organisés autour de l&#8217;optimisation de la livraison de valeur ajoutée. La stratégie est tout simplement de commencer la livraison de la valeur ajoutée la plus élevée en premier.</p>
+
+<p>On peut évaluer, au minimum, une différence de productivité (financiaire) de 1 à 100 entre les organisations qui tirent profit de ce type d&#8217;optimisations et les autres.</p>
+
+<h1>Et scala dans tout ça ?</h1>
+
+<p>Développer, en scala ou dans quelque langage que ce soit, ne me parait être en aucune façon une garantie de succès. L&#8217;impact de l&#8217;organisation sur le succès ou l&#8217;échec d&#8217;un projet me parait bien supérieur:</p>
+
+<ul>
+<li>Impact de l&#8217;organisation : 1 à 100;</li>
+<li>Impact des équipes : 1 à 10;</li>
+<li>Impact des technologies : 1 à 3.</li>
+</ul>
+
+
+<p>Si pour vous « retrospective meeting » ne rime pas avec itération, les méthodes agiles peuvent vous apporter un vrai plus dans votre productivité quotidienne.</p>
+
+<p>Si pour vous un « retrospective meeting » est indispensable après chaque itération; je vous fais totalement confiance car au final vous avez obtenu votre organisation avec les bonnes personnes, les bons profils, et les bonnes technologies. D&#8217;ailleurs, vous avez déjà décidé sur le fait d&#8217;utiliser Scala ou non, n&#8217;est-ce pas ?</p>
+
+<p>CQFD : « Quel avenir pour Scala ? » n&#8217;est pas la question.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jean-Luc</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-26T09:33:00+01:00" pubdate data-updated="true">Feb 26<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://jlcanela.github.com/jlcanela/blog/2013/02/26/%3C%3C-quel-avenir-pour-scala-%3E%3E-nest-pas-la-question/" data-via="" data-counturl="http://jlcanela.github.com/jlcanela/blog/2013/02/26/%3C%3C-quel-avenir-pour-scala-%3E%3E-nest-pas-la-question/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+      
+        <a class="basic-alignment right" href="/jlcanela/blog/2013/04/13/nodejs-form/" title="Next Post: nodeJS form">nodeJS form &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/jlcanela/blog/2013/04/13/nodejs-form/">nodeJS form</a>
+      </li>
+    
+      <li class="post">
+        <a href="/jlcanela/blog/2013/02/26/%3C%3C-quel-avenir-pour-scala-%3E%3E-nest-pas-la-question/">« Quel avenir pour Scala ? » n'est pas la question.</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Jean-Luc -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

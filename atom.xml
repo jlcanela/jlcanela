@@ -1,101 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Jean-Luc Blog</title>
-  <meta name="author" content="Jean-Luc">
-
-  
-  <meta name="description" content="Voici quelques notes sur comment implémenter un formulaire: post / ajax
-validation coté serveur
-affichage des erreurs coté client Modèle de &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://jlcanela.github.com/jlcanela/">
-  <link href="/jlcanela/favicon.png" rel="icon">
-  <link href="/jlcanela/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/jlcanela/javascripts/modernizr-2.0.js"></script>
-  <script src="/jlcanela/javascripts/ender.js"></script>
-  <script src="/jlcanela/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/jlcanela/atom.xml" rel="alternate" title="Jean-Luc Blog" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/jlcanela/">Jean-Luc Blog</a></h1>
-  
-    <h2>An IT blog.</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/jlcanela/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:jlcanela.github.com/jlcanela" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/jlcanela/">Blog</a></li>
-  <li><a href="/jlcanela/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[Jean-Luc Blog]]></title>
+  <link href="http://jlcanela.github.com/jlcanela/atom.xml" rel="self"/>
+  <link href="http://jlcanela.github.com/jlcanela/"/>
+  <updated>2013-04-14T22:40:07+02:00</updated>
+  <id>http://jlcanela.github.com/jlcanela/</id>
+  <author>
+    <name><![CDATA[Jean-Luc]]></name>
     
-      <h1 class="entry-title"><a href="/jlcanela/blog/2013/04/13/nodejs-form/">nodeJS Form</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2013-04-13T18:05:00+02:00" pubdate data-updated="true">Apr 13<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Voici quelques notes sur comment implémenter un formulaire:</p>
+  <entry>
+    <title type="html"><![CDATA[nodeJS form]]></title>
+    <link href="http://jlcanela.github.com/jlcanela/blog/2013/04/13/nodejs-form/"/>
+    <updated>2013-04-13T18:05:00+02:00</updated>
+    <id>http://jlcanela.github.com/jlcanela/blog/2013/04/13/nodejs-form</id>
+    <content type="html"><![CDATA[<p>Voici quelques notes sur comment implémenter un formulaire:</p>
 
 <ul>
 <li>post / ajax</li>
@@ -443,42 +366,15 @@ Lorsqu&#8217;un évènement <em>submit</em> est détecté, les messages d&#8217;
 
 
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/jlcanela/blog/2013/02/26/%3C%3C-quel-avenir-pour-scala-%3E%3E-nest-pas-la-question/">« Quel Avenir Pour Scala ? » N&#8217;est Pas La Question.</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-02-26T09:33:00+01:00" pubdate data-updated="true">Feb 26<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>J&#8217;ai été tenté d&#8217;écrire un article sur les incroyables capacités et potentiel du langage scala et de son écosystème.
+  <entry>
+    <title type="html"><![CDATA[« Quel avenir pour Scala ? » n'est pas la question.]]></title>
+    <link href="http://jlcanela.github.com/jlcanela/blog/2013/02/26/%3C%3C-quel-avenir-pour-scala-%3E%3E-nest-pas-la-question/"/>
+    <updated>2013-02-26T09:33:00+01:00</updated>
+    <id>http://jlcanela.github.com/jlcanela/blog/2013/02/26/<<-quel-avenir-pour-scala->>-nest-pas-la-question</id>
+    <content type="html"><![CDATA[<p>J&#8217;ai été tenté d&#8217;écrire un article sur les incroyables capacités et potentiel du langage scala et de son écosystème.
 Quel que soit l&#8217;article vantant les mérites de telle ou telle technologie, que ce soit de la lessive, une voiture, le C++ et maintenant scala, on retrouve à peu prés les mêmes éléments marketing :« Performant » « Puissant » « Efficace » « Bla bla bla ».</p>
 
 <h1>La technologie</h1>
@@ -581,73 +477,7 @@ Celle-ci pourrait concerner par exemple l&#8217;augmentation des revenus, la pro
 <p>Si pour vous un « retrospective meeting » est indispensable après chaque itération; je vous fais totalement confiance car au final vous avez obtenu votre organisation avec les bonnes personnes, les bons profils, et les bonnes technologies. D&#8217;ailleurs, vous avez déjà décidé sur le fait d&#8217;utiliser Scala ou non, n&#8217;est-ce pas ?</p>
 
 <p>CQFD : « Quel avenir pour Scala ? » n&#8217;est pas la question.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/jlcanela/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/jlcanela/blog/2013/04/13/nodejs-form/">nodeJS form</a>
-      </li>
-    
-      <li class="post">
-        <a href="/jlcanela/blog/2013/02/26/%3C%3C-quel-avenir-pour-scala-%3E%3E-nest-pas-la-question/">« Quel avenir pour Scala ? » n&#8217;est pas la question.</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Jean-Luc -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>
